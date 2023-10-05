@@ -14,8 +14,9 @@ class KittensController < ApplicationController
   def create
     @kitten = Kitten.new(kitten_params)
     if @kitten.save
-      redirect_to kitten_path(@kitten.id)
+      redirect_to kitten_path(@kitten.id), notice: 'Kitten has been created!'
     else
+      flash.now[:alert] = 'Fields cannot be blank!'
       render :new
     end
   end
@@ -23,8 +24,9 @@ class KittensController < ApplicationController
   def update
     @kitten = Kitten.find(params[:id])
     if @kitten.update(kitten_params)
-      redirect_to kitten_path(@kitten.id)
+      redirect_to kitten_path(@kitten.id), notice: 'Kitten has been updated!'
     else
+      flash.now[:alert] = 'Fields cannot be blank!'
       render :edit
     end
   end
@@ -36,7 +38,7 @@ class KittensController < ApplicationController
   def destroy
     @kitten = Kitten.find(params[:id])
     @kitten.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: 'Kitten has been deleted!'
   end
 
   def kitten_params
