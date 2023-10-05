@@ -1,0 +1,23 @@
+<%= form_with model: @kitten do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: 'ex. Rex' %>
+  </p>
+
+  <p>
+    <%= f.label :age %>
+    <%= f.select :age, ['less than 1', '2', '3', '4', '5', '6','7', '8', '9', '10', '10+'], { include_blank: true } %>
+  </p>
+
+  <p>
+    <%= f.label :cuteness %>
+    <%= f.select :cuteness, ['extremely cute', 'very cute', 'a little cute', 'not cute'], { include_blank: true } %>
+  </p>
+
+  <p>
+    <%= f.label :softness %>
+    <%= f.select :softness, ['extremely soft', 'very soft', 'a little soft', 'not soft'], { include_blank: true } %>
+  </p>
+
+  <p><%= f.submit 'Create' %></p>
+<% end %>
