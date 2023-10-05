@@ -11,6 +11,8 @@
   </head>
 
   <body>
+    <%= button_to 'Kittens', kittens_path, method: :get %>
+    <%= button_to 'Create Kitten', new_kitten_path, method: :get %>
     <%= yield %>
   </body>
 </html>

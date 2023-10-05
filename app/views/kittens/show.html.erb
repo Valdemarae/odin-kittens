@@ -10,3 +10,6 @@
     <h3>Cuteness - <%= @kitten.cuteness %></h3>
   </li>
 </ul>
+<%= link_to 'Edit', edit_kitten_path(@kitten.id) %>
+<%= link_to 'Delete', kitten_path(@kitten.id),
+            data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
